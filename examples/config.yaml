@@ -1,0 +1,51 @@
+# Пример конфигурации для расширенного планировщика v4.
+tle: examples/iss_sample.tle
+
+satellites:
+  - name: ISS
+
+
+stations:
+  - name: Moscow GS
+    lat: 55.7539
+    lon: 37.6208
+    elevation_m: 150
+    min_elevation_deg: 10
+    horizon_mask: examples/horizon_mask.csv
+    weather: clear   # clear/cloudy/rain/snow/storm/fog
+
+planning:
+  start: now
+  hours: 48
+  coarse_step_sec: 60
+  sample_step_sec: 10
+  resolve_conflicts: true
+
+filters:
+  min_duration_min: 5
+  min_max_elevation_deg: 15
+  # only_day: true
+  # only_night: true
+
+data:
+  downlink_mbps: 2
+  capacity_mb_per_pass: 500
+  data_generation_rate_mbps: 0.2
+  initial_backlog_mb: 0
+
+recommendation:
+  mode: top_n              # all/top_n/best_per_satellite/quality
+  max_count: 5
+  min_quality_class: B
+
+outputs:
+  out_dir: outputs
+  csv: outputs/schedule.csv
+  json: outputs/schedule.json
+  html: outputs/report.html
+  pdf: outputs/report.pdf
+  map_html: outputs/map.html
+  ics: outputs/schedule.ics
+  plot_dir: outputs/plots
+  utilization_png: outputs/station_utilization.png
+  db: outputs/history.sqlite

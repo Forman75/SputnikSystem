@@ -1,0 +1,39 @@
+tle: https://celestrak.org/NORAD/elements/gp.php?CATNR=33591&FORMAT=tle
+satellites:
+- name: NOAA 19
+  norad_id: "33591"
+stations:
+- name: Moscow Weather GS
+  lat: 55.7539
+  lon: 37.6208
+  elevation_m: 150
+  min_elevation_deg: 8
+planning:
+  start: now
+  hours: 72
+  coarse_step_sec: 60
+  sample_step_sec: 15
+  resolve_conflicts: true
+filters:
+  min_duration_min: 6
+  min_max_elevation_deg: 20
+data:
+  downlink_mbps: 0.665
+  capacity_mb_per_pass: 300
+  data_generation_rate_mbps: 0.05
+  initial_backlog_mb: 0
+recommendation:
+  mode: quality
+  max_count: 10
+  min_quality_class: B
+outputs:
+  out_dir: outputs/noaa_weather
+  csv: outputs/noaa_weather/schedule.csv
+  json: outputs/noaa_weather/schedule.json
+  html: outputs/noaa_weather/report.html
+  map_html: outputs/noaa_weather/map.html
+  ics: outputs/noaa_weather/schedule.ics
+  plot_dir: outputs/noaa_weather/plots
+  pdf: outputs/noaa_weather/report.pdf
+  utilization_png: outputs/noaa_weather/station_utilization.png
+  db: outputs/noaa_weather/history.sqlite

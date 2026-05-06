@@ -1,0 +1,39 @@
+tle: examples/iss_sample.tle
+satellites:
+- name: ISS
+stations:
+- name: Moscow Night GS
+  lat: 55.7539
+  lon: 37.6208
+  elevation_m: 150
+  min_elevation_deg: 10
+planning:
+  start: now
+  hours: 96
+  coarse_step_sec: 60
+  sample_step_sec: 15
+  resolve_conflicts: true
+filters:
+  min_duration_min: 5
+  min_max_elevation_deg: 15
+  only_night: true
+data:
+  downlink_mbps: 1.5
+  capacity_mb_per_pass: 400
+  data_generation_rate_mbps: 0.1
+  initial_backlog_mb: 0
+recommendation:
+  mode: top_n
+  max_count: 6
+  min_quality_class: B
+outputs:
+  out_dir: outputs/night_passes
+  csv: outputs/night_passes/schedule.csv
+  json: outputs/night_passes/schedule.json
+  html: outputs/night_passes/report.html
+  map_html: outputs/night_passes/map.html
+  ics: outputs/night_passes/schedule.ics
+  plot_dir: outputs/night_passes/plots
+  pdf: outputs/night_passes/report.pdf
+  utilization_png: outputs/night_passes/station_utilization.png
+  db: outputs/night_passes/history.sqlite

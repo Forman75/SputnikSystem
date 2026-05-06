@@ -1,0 +1,39 @@
+tle: https://celestrak.org/NORAD/elements/gp.php?GROUP=stations&FORMAT=tle
+satellites:
+- name: ISS
+- name: CSS
+stations:
+- name: Moscow GS
+  lat: 55.7539
+  lon: 37.6208
+  elevation_m: 150
+  min_elevation_deg: 10
+planning:
+  start: now
+  hours: 72
+  coarse_step_sec: 60
+  sample_step_sec: 15
+  resolve_conflicts: true
+filters:
+  min_duration_min: 4
+  min_max_elevation_deg: 10
+data:
+  downlink_mbps: 2
+  capacity_mb_per_pass: 500
+  data_generation_rate_mbps: 0.2
+  initial_backlog_mb: 200
+recommendation:
+  mode: top_n
+  max_count: 8
+  min_quality_class: B
+outputs:
+  out_dir: outputs/station_group_multi_sat
+  csv: outputs/station_group_multi_sat/schedule.csv
+  json: outputs/station_group_multi_sat/schedule.json
+  html: outputs/station_group_multi_sat/report.html
+  map_html: outputs/station_group_multi_sat/map.html
+  ics: outputs/station_group_multi_sat/schedule.ics
+  plot_dir: outputs/station_group_multi_sat/plots
+  pdf: outputs/station_group_multi_sat/report.pdf
+  utilization_png: outputs/station_group_multi_sat/station_utilization.png
+  db: outputs/station_group_multi_sat/history.sqlite

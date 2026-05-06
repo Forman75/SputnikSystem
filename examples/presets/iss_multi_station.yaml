@@ -1,0 +1,48 @@
+tle: examples/iss_sample.tle
+satellites:
+- name: ISS
+stations:
+- name: Moscow GS
+  lat: 55.7539
+  lon: 37.6208
+  elevation_m: 150
+  min_elevation_deg: 10
+- name: Novosibirsk GS
+  lat: 55.0084
+  lon: 82.9357
+  elevation_m: 160
+  min_elevation_deg: 10
+- name: Vladivostok GS
+  lat: 43.1155
+  lon: 131.8855
+  elevation_m: 70
+  min_elevation_deg: 10
+planning:
+  start: now
+  hours: 72
+  coarse_step_sec: 60
+  sample_step_sec: 15
+  resolve_conflicts: true
+filters:
+  min_duration_min: 4
+  min_max_elevation_deg: 12
+data:
+  downlink_mbps: 2
+  capacity_mb_per_pass: 600
+  data_generation_rate_mbps: 0.2
+  initial_backlog_mb: 100
+recommendation:
+  mode: best_per_satellite
+  max_count: 8
+  min_quality_class: B
+outputs:
+  out_dir: outputs/iss_multi_station
+  csv: outputs/iss_multi_station/schedule.csv
+  json: outputs/iss_multi_station/schedule.json
+  html: outputs/iss_multi_station/report.html
+  map_html: outputs/iss_multi_station/map.html
+  ics: outputs/iss_multi_station/schedule.ics
+  plot_dir: outputs/iss_multi_station/plots
+  pdf: outputs/iss_multi_station/report.pdf
+  utilization_png: outputs/iss_multi_station/station_utilization.png
+  db: outputs/iss_multi_station/history.sqlite

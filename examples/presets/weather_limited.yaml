@@ -1,0 +1,45 @@
+tle: examples/iss_sample.tle
+satellites:
+- name: ISS
+stations:
+- name: Moscow Rain GS
+  lat: 55.7539
+  lon: 37.6208
+  elevation_m: 150
+  min_elevation_deg: 10
+  weather: rain
+- name: Novosibirsk Storm GS
+  lat: 55.0084
+  lon: 82.9357
+  elevation_m: 160
+  min_elevation_deg: 10
+  weather: storm
+planning:
+  start: now
+  hours: 48
+  coarse_step_sec: 60
+  sample_step_sec: 15
+  resolve_conflicts: true
+filters:
+  min_duration_min: 4
+  min_max_elevation_deg: 12
+data:
+  downlink_mbps: 2
+  capacity_mb_per_pass: 500
+  data_generation_rate_mbps: 0.2
+  initial_backlog_mb: 100
+recommendation:
+  mode: top_n
+  max_count: 5
+  min_quality_class: B
+outputs:
+  out_dir: outputs/weather_limited
+  csv: outputs/weather_limited/schedule.csv
+  json: outputs/weather_limited/schedule.json
+  html: outputs/weather_limited/report.html
+  map_html: outputs/weather_limited/map.html
+  ics: outputs/weather_limited/schedule.ics
+  plot_dir: outputs/weather_limited/plots
+  pdf: outputs/weather_limited/report.pdf
+  utilization_png: outputs/weather_limited/station_utilization.png
+  db: outputs/weather_limited/history.sqlite
